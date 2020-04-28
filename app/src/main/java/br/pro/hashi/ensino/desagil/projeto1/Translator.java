@@ -66,7 +66,23 @@ public class Translator {
     // Você deve mudar o recheio deste método,
     // de acordo com os requisitos do projeto.
     private String charToMorse(Node node) {
-        return " ";
+        String morse = "";
+        Node original = node;
+        Node temp = node;
+        while (original.getValue() != '@') {
+            temp = original.getParent();
+            if (temp.getLeft() == original) {
+                morse += ".";
+            }
+            else{
+                morse += "-";
+            }
+        original = original.getParent();
+        }
+        String morse_reversed = new StringBuilder(morse).reverse().toString();
+
+
+        return morse_reversed;
     }
 
 
