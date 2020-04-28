@@ -8,18 +8,20 @@
     tools:context=".MainActivity">
 
 
-    <EditText android:id="@+id/edit_text"
+    <EditText
+        android:id="@+id/edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:padding="10dp"
-        android:hint="Mensagem"/>
+        android:hint="Mensagem" />
 
-    <TextView android:id="@+id/text"
+    <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:text="Veja a mensagem:"/>
+        android:text="Veja a mensagem:" />
 
 
     <Button

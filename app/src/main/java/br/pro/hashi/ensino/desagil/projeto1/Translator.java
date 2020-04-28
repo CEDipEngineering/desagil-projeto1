@@ -14,17 +14,16 @@ public class Translator {
     private char nos[];
 
 
-
     // Você deve mudar o recheio do construtor,
     // de acordo com os requisitos do projeto.
 
     public Translator() {
         map = new HashMap<Character, Node>();
-        char[] nodes = new char[]{'@', 'e', 't', 'i', 'a', 'n', 'm', 's', 'u', 'r', 'w', 'd', 'k', 'g', 'o', 'h', 'v', 'f', '*', 'l', '*', 'p', 'j', 'b', 'x', 'c', 'y', 'z', 'q', '*', '*', '5', '4', '*', '3', '*', '*', '*', '2', '*', '*', '+', '*', '*', '*', '*', '1', '6', '=', '/', '*', '*', '*', '*', '*', '7', '*', '*', '*', '8', '*', '9', '0'};
+        char[] nodes = new char[]{'*', 'e', 't', 'i', 'a', 'n', 'm', 's', 'u', 'r', 'w', 'd', 'k', 'g', 'o', 'h', 'v', 'f', '*', 'l', '*', 'p', 'j', 'b', 'x', 'c', 'y', 'z', 'q', '*', '*', '5', '4', '*', '3', '*', '*', '*', '2', '*', '*', '*', '*', '*', '*', '*', '1', '6', '*', '*', '*', '*', '*', '*', '*', '7', '*', '*', '*', '8', '*', '9', '0'};
         this.root = this.createTree(nodes, null, this.root, 0, map);
     }
 
-   // Código baseado em https://www.geeksforgeeks.org/construct-complete-binary-tree-given-array/
+    // Código baseado em https://www.geeksforgeeks.org/construct-complete-binary-tree-given-array/
     private Node createTree(char[] arr, Node parent, Node current, int i, HashMap<Character, Node> map) {
         if (i < arr.length) {
             Node temp = new Node(arr[i]);
@@ -53,11 +52,13 @@ public class Translator {
     // de acordo com os requisitos do projeto.
     public char morseToChar(String code) {
         Node temp = this.root;
-        for (int i = 0; i < code.length(); i++) {
-            if (code.charAt(i) == '-') {
-                temp = temp.getRight();
-            } else if (code.charAt(i) == '.') {
-                temp = temp.getLeft();
+        if (code.length() <= 5) {
+            for (int i = 0; i < code.length(); i++) {
+                if (code.charAt(i) == '-') {
+                    temp = temp.getRight();
+                } else if (code.charAt(i) == '.') {
+                    temp = temp.getLeft();
+                }
             }
         }
         return temp.getValue();
@@ -69,15 +70,14 @@ public class Translator {
         String morse = "";
         Node original = node;
         Node temp = node;
-        while (original.getValue() != '@') {
+        while (original.getParent() != null) {
             temp = original.getParent();
             if (temp.getLeft() == original) {
                 morse += ".";
-            }
-            else{
+            } else {
                 morse += "-";
             }
-        original = original.getParent();
+            original = original.getParent();
         }
         String morse_reversed = new StringBuilder(morse).reverse().toString();
 
@@ -95,7 +95,16 @@ public class Translator {
     // Você deve mudar o recheio deste método,
     // de acordo com os requisitos do projeto.
     public LinkedList<String> getCodes() {
-        return new LinkedList<>();
+        Search search = new Search(this.root);
+        LinkedList<Character> resultadoBusca = search.getOrder();
+        LinkedList<String> outputList = new LinkedList<>();
+        for (char c : resultadoBusca) {
+            if (c != '*') {
+                outputList.add(this.charToMorse(c));
+            }
+        }
+        System.out.println(outputList);
+        return outputList;
     }
 
 }

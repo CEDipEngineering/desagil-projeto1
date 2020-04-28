@@ -15,7 +15,7 @@ public class SearchTest {
         LinkedList<Character> expected = new LinkedList<>();
         expected.add('a');
         expected.add('b');
-        Assert.assertEquals (expected, searcher.getOrder());
+        Assert.assertEquals(expected, searcher.getOrder());
     }
 
     @Test
@@ -26,7 +26,7 @@ public class SearchTest {
         LinkedList<Character> expected = new LinkedList<>();
         expected.add('a');
         expected.add('b');
-        Assert.assertEquals (expected, searcher.getOrder());
+        Assert.assertEquals(expected, searcher.getOrder());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class SearchTest {
         expected.add('e');
         expected.add('f');
         expected.add('g');
-        Assert.assertEquals (expected, searcher.getOrder());
+        Assert.assertEquals(expected, searcher.getOrder());
     }
 
     @Test
@@ -68,7 +68,7 @@ public class SearchTest {
         expected.add('e');
         expected.add('f');
         expected.add('g');
-        Assert.assertEquals (expected, searcher.getOrder());
+        Assert.assertEquals(expected, searcher.getOrder());
     }
 
     @Test
@@ -89,7 +89,7 @@ public class SearchTest {
         expected.add('e');
         expected.add('d');
         expected.add('f');
-        Assert.assertEquals (expected, searcher.getOrder());
+        Assert.assertEquals(expected, searcher.getOrder());
     }
 
     @Test
@@ -110,6 +110,6 @@ public class SearchTest {
         expected.add('c');
         expected.add('b');
         expected.add('a');
-        Assert.assertEquals (expected, searcher.getOrder());
+        Assert.assertEquals(expected, searcher.getOrder());
     }
 }
