@@ -6,10 +6,12 @@ import java.util.Queue;
 public class Search {
     private final Queue<Node> queue;
     private final Node root;
+
     public Search(Node r) {
         this.root = r;
         queue = new LinkedList<>();
     }
+
     public LinkedList<Character> getOrder() {
         LinkedList<Character> outList = new LinkedList<>();
         queue.add(this.root);
