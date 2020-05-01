@@ -5,7 +5,7 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
 public class Node {
-    private char value;
+    private final char value;
     private Node parent;
     private Node left;
     private Node right;

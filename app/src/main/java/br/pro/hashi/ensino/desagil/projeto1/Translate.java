@@ -1,9 +1,11 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+@SuppressLint("Registered")
 public class Translate extends AppCompatActivity {
 
     @Override
