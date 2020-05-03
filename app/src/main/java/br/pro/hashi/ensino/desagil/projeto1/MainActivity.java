@@ -1,5 +1,6 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonMorse;
     private Button buttonDelete;
     private Button buttonEndChar;
+    private Button homeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         buttonMorse = findViewById(R.id.button_morse);
         buttonDelete = findViewById(R.id.button_delete);
         buttonEndChar = findViewById(R.id.button_endChar);
+        homeButton = findViewById(R.id.home_button);
 
         // Write dot if short click;
         this.buttonMorse.setOnClickListener((view) -> {
@@ -67,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         this.buttonEndChar.setOnClickListener((view) -> {
             endChar();
             update();
+        });
+
+        this.homeButton.setOnClickListener((view) -> {
+            Intent intent=new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
         });
     }
 

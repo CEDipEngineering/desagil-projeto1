@@ -8,6 +8,14 @@
     tools:context=".MainActivity">
 
 
+    
+    <Button
+        android:id="@+id/home_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        />
+    
     <TextView
         android:id="@+id/textLetter"
         android:layout_width="match_parent"
@@ -40,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="50dp"
+        android:layout_below="@id/home_button"
         android:layout_marginRight="50dp"
         android:textSize="20sp"
         android:text="Mensagem: " />

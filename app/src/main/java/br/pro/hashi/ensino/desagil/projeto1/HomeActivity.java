@@ -16,29 +16,23 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-
         buttonDict = findViewById(R.id.dict);
         buttonTranslator = findViewById(R.id.translator);
         buttonMessages = findViewById(R.id.messages);
 
-        // Write dot if short click;
         this.buttonDict.setOnClickListener((view) -> {
-            Intent intent=new Intent(HomeActivity.this,Dicionario.class);
+            Intent intent=new Intent(HomeActivity.this, Dicionario.class);
             startActivity(intent);
         });
 
-        // Write dash if long click;
+
         this.buttonTranslator.setOnClickListener((view) -> {
             Intent intent=new Intent(HomeActivity.this,MainActivity.class);
             startActivity(intent);
 
         });
 
-        // Delete last signal, (or character if no signal present);
         this.buttonMessages.setOnClickListener((view) -> {
-
-
         });
 
     }
