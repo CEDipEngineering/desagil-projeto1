@@ -10,14 +10,14 @@ import java.util.LinkedList;
 
 public class Translator {
     private Node root;
-    private HashMap<Character, Node> map;
-    private char nos[];
+    private final HashMap<Character, Node> map;
 
 
     // Você deve mudar o recheio do construtor,
     // de acordo com os requisitos do projeto.
 
     public Translator() {
+        // noinspection Convert2Diamond
         map = new HashMap<Character, Node>();
         char[] nodes = new char[]{'*', 'e', 't', 'i', 'a', 'n', 'm', 's', 'u', 'r', 'w', 'd', 'k', 'g', 'o', 'h', 'v', 'f', '*', 'l', '*', 'p', 'j', 'b', 'x', 'c', 'y', 'z', 'q', '*', '*', '5', '4', '*', '3', '*', '*', '*', '2', '*', '*', '*', '*', '*', '*', '*', '1', '6', '*', '*', '*', '*', '*', '*', '*', '7', '*', '*', '*', '8', '*', '9', '0'};
         this.root = this.createTree(nodes, null, this.root, 0, map);
@@ -26,8 +26,7 @@ public class Translator {
     // Código baseado em https://www.geeksforgeeks.org/construct-complete-binary-tree-given-array/
     private Node createTree(char[] arr, Node parent, Node current, int i, HashMap<Character, Node> map) {
         if (i < arr.length) {
-            Node temp = new Node(arr[i]);
-            current = temp;
+            current = new Node(arr[i]);
 
             current.setParent(parent);
 
@@ -67,22 +66,21 @@ public class Translator {
     // Você deve mudar o recheio deste método,
     // de acordo com os requisitos do projeto.
     private String charToMorse(Node node) {
-        String morse = "";
+        StringBuilder morse = new StringBuilder();
         Node original = node;
-        Node temp = node;
+        Node temp;
         while (original.getParent() != null) {
             temp = original.getParent();
             if (temp.getLeft() == original) {
-                morse += ".";
+                morse.append(".");
             } else {
-                morse += "-";
+                morse.append("-");
             }
             original = original.getParent();
         }
-        String morse_reversed = new StringBuilder(morse).reverse().toString();
 
 
-        return morse_reversed;
+        return new StringBuilder(morse.toString()).reverse().toString();
     }
 
 
