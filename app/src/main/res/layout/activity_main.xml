@@ -1,88 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_width="match_parent">
 
-
-    <EditText
-        android:id="@+id/edit_text"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:padding="10dp"
-        android:hint="Mensagem" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textLetter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:textSize="15sp"
-        android:text="Letra Atual:" />
-
-    <TextView
-        android:id="@+id/textWord"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:textSize="15sp"
-        android:text="Mensagem até agora:" />
+        <TextView
+            android:id="@+id/textDic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textSize="15sp"
+            android:text="Letra Atual:" />
 
 
-    <Button
-        android:id="@+id/button_ponto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:padding="15dp"
-        tools:layout_editor_absoluteY="305dp"
-        android:text="."
-        android:textSize="50sp"/>
-
-    <Button
-        android:id="@+id/button_traço"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:padding="15dp"
-        android:text="-"
-        android:textSize="50sp"/>
-
-    <Button
-        android:id="@+id/button_delete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:padding="15dp"
-        android:textSize="50sp"
-        android:text="\u232B" />
-
-    <Button
-        android:id="@+id/button_endChar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:padding="15dp"
-        android:textSize="50sp"
-        android:text="\u2423"  />
-
-
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
