@@ -18,11 +18,12 @@
             />
 
         <Button
+            android:textSize="20dp"
             android:layout_marginTop="20dp"
             android:id="@+id/troca_dic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Traduzir Morse"
+            android:text="A   =>   .-"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             />

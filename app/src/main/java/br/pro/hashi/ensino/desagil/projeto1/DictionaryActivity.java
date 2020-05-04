@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class DictionaryActivity extends AppCompatActivity {
     private static Dicionario dictionary = new Dicionario();
     private Button homeButton;
+    private Button dicButton;
 
 
     @Override
@@ -17,6 +18,7 @@ public class DictionaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dicionario);
         homeButton = findViewById(R.id.home_button);
+        dicButton = findViewById(R.id.troca_dic);
 
         TextView textDicionario = findViewById(R.id.textDic);
         textDicionario.setText(dictionary.getDicMorseChar());
@@ -24,6 +26,16 @@ public class DictionaryActivity extends AppCompatActivity {
         this.homeButton.setOnClickListener((view) -> {
             Intent intent=new Intent(DictionaryActivity.this, HomeActivity.class);
             startActivity(intent);
+        });
+
+        this.dicButton.setOnClickListener((view) -> {
+            if (dictionary.isState()) {
+                textDicionario.setText(dictionary.getDicCharMorse());
+                dicButton.setText(".-   =>   A"); //Traduz de Morse
+            } else {
+                textDicionario.setText(dictionary.getDicMorseChar());
+                dicButton.setText("A   =>   .-"); //Traduz para Morse
+            }
         });
     }
 }
