@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
         buttonMessages = findViewById(R.id.messages);
 
         this.buttonDict.setOnClickListener((view) -> {
-            Intent intent=new Intent(HomeActivity.this, Dicionario.class);
+            Intent intent=new Intent(HomeActivity.this, DictionaryActivity.class);
             startActivity(intent);
         });
 
