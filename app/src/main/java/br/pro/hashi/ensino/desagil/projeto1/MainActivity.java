@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private final LinkedList<Character> outputChars = new LinkedList<>();
     private TextView text;
     private TextView textWord;
-    private EditText editText;
+    private TextView editText;
     private Button buttonMorse;
     private Button buttonDelete;
     private Button buttonEndChar;
