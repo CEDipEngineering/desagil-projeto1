@@ -31,10 +31,10 @@ public class DictionaryActivity extends AppCompatActivity {
         this.dicButton.setOnClickListener((view) -> {
             if (dictionary.isState()) {
                 textDicionario.setText(dictionary.getDicCharMorse());
-                dicButton.setText(".-   =>   A"); //Traduz de Morse
+                dicButton.setText(".-    =>    A"); //Traduz de Morse
             } else {
                 textDicionario.setText(dictionary.getDicMorseChar());
-                dicButton.setText("A   =>   .-"); //Traduz para Morse
+                dicButton.setText("A    =>    .-"); //Traduz para Morse
             }
         });
     }
