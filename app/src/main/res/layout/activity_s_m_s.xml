@@ -20,7 +20,7 @@
       disso, usamos columnWeight para dizer que ela
       deve tentar ocupar o espaço horizontal que puder.
     -->
-    <EditText
+    <TextView
         android:id="@+id/text_message"
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"

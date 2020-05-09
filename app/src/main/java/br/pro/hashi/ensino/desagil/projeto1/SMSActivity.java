@@ -1,11 +1,14 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -26,12 +29,14 @@ public class SMSActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_s_m_s);
 
-        EditText textMessage = findViewById(R.id.text_message);
+        TextView textMessage = findViewById(R.id.text_message);
         EditText textPhone = findViewById(R.id.text_phone);
         Button buttonSend = findViewById(R.id.button_send);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra("message");
 
+        textMessage.setText(message);
         buttonSend.setOnClickListener((view) -> {
-            String message = textMessage.getText().toString();
 
             if (message.isEmpty()) {
                 showToast("Mensagem inválida!");
