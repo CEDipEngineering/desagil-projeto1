@@ -11,16 +11,16 @@
         android:id="@+id/dict"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:textSize="30sp"
         android:text="Dicionário"
+        android:textSize="30sp"
         tools:layout_marginTop="240dp" />
 
     <Button
         android:id="@+id/translator"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:textSize="30sp"
         android:text="Tradutor"
+        android:textSize="30sp"
         tools:layout_marginTop="20dp" />
 
     <Button
