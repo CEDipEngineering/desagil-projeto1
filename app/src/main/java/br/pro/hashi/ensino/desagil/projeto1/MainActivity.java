@@ -37,6 +37,20 @@ public class MainActivity extends AppCompatActivity {
         buttonEndChar = findViewById(R.id.button_endChar);
         homeButton = findViewById(R.id.home_button);
         SMSButton = findViewById(R.id.button_SMS);
+        Intent myIntent = getIntent();
+        // Try to get message handed in when creating intent
+        String message = myIntent.getStringExtra("message");
+
+        // If there is one, put it in the textView
+        if (message != null) {
+            textWord.setText(message);
+            outputChars.clear();
+            for (char c: message.toCharArray()) {
+                outputChars.add(c);
+            }
+            update();
+        }
+
 
         // Write dot if short click;
         this.buttonMorse.setOnClickListener((view) -> {
@@ -56,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
         this.buttonDelete.setOnClickListener((view) -> {
             deleteMorse();
             update();
-
-
         });
 
         // Clear everything if long click on delete button;
@@ -81,7 +93,11 @@ public class MainActivity extends AppCompatActivity {
 
         this.SMSButton.setOnClickListener((view) -> {
             Intent intent = new Intent(MainActivity.this, SMSActivity.class);
-            intent.putExtra("message", this.textWord.getText().toString());
+            StringBuilder outMessage = new StringBuilder();
+            for (char c : outputChars) {
+                outMessage.append(c);
+            }
+            intent.putExtra("message", outMessage.toString());
             startActivity(intent);
         });
     }
@@ -98,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
             character += Character.toString(translator.morseToChar(morse));
         }
         text.setText(character);
-
         // Now to try and write the whole output string
         StringBuilder outputText = new StringBuilder("Mensagem: ");
         for (char c : outputChars) {

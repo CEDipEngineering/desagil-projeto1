@@ -62,6 +62,7 @@ public class SMSActivity extends AppCompatActivity {
 
         this.backButton.setOnClickListener((view) -> {
             Intent intent=new Intent(SMSActivity.this, MainActivity.class);
+            intent.putExtra("message", message);
             startActivity(intent);
         });
         // Write dot if short click;
