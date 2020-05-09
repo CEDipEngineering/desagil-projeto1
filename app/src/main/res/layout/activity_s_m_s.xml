@@ -14,10 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_text"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="50dp"
-        android:text="Letra: "
-        android:textSize="45sp" />
+        android:text="Número: "
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/edit_text"
@@ -26,11 +26,12 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_below="@id/textWord"
+        android:layout_below="@id/textNumber"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
         android:inputType="none"/>
 
     <TextView

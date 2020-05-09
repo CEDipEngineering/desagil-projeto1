@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 
@@ -18,6 +19,7 @@ import java.util.LinkedList;
 public class SMSActivity extends AppCompatActivity {
     private static final Translator translator = new Translator(); //protected quando tiverem mais activities?
     private final LinkedList<Character> outputChars = new LinkedList<>();
+    private static final char[] numeros = new char[]{'0','1','2','3','4','5','6','7','8','9'};
     private TextView text;
     private TextView textWord;
     private TextView textNumber;
@@ -31,6 +33,7 @@ public class SMSActivity extends AppCompatActivity {
     private Button homeButton;
     private Button SMSButton;
     private Button backButton;
+
     // Método de conveniência para mostrar uma bolha de texto.
     private void showToast(String text) {
 
@@ -45,9 +48,8 @@ public class SMSActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_s_m_s);
-        Intent myIntent = getIntent();
-        String message = myIntent.getStringExtra("message");
 
+        // Carregar os views
         textMessage = findViewById(R.id.textWord);
         textNumber = findViewById(R.id.textNumber);
         buttonSend = findViewById(R.id.button_SMS);
@@ -55,16 +57,23 @@ public class SMSActivity extends AppCompatActivity {
         text = findViewById(R.id.textLetter);
         textWord = findViewById(R.id.textWord);
         textNumber = findViewById(R.id.textNumber);
-        editText = findViewById(R.id.edit_text);
+        editText = findViewById(R.id.textNumber);
         buttonMorse = findViewById(R.id.button_morse);
         buttonDelete = findViewById(R.id.button_delete);
         buttonEndChar = findViewById(R.id.button_endChar);
+
+
+        // Usa a mensagem que foi enviada junto da criação do intent para mostrar o que será enviado
+        Intent myIntent = getIntent();
+        String message = myIntent.getStringExtra("message");
+        textMessage.setText("Mensagem: " + message);
 
         this.backButton.setOnClickListener((view) -> {
             Intent intent=new Intent(SMSActivity.this, MainActivity.class);
             intent.putExtra("message", message);
             startActivity(intent);
         });
+
         // Write dot if short click;
         this.buttonMorse.setOnClickListener((view) -> {
             writeDot();
@@ -101,7 +110,7 @@ public class SMSActivity extends AppCompatActivity {
             update();
         });
 
-        textMessage.setText(message);
+        // Envia a mensagem
         buttonSend.setOnClickListener((view) -> {
 
             if (message.isEmpty()) {
@@ -129,18 +138,19 @@ public class SMSActivity extends AppCompatActivity {
             textPhone.setText("");
         });
     }
+
     private void update() {
 
         // Try to translate editText
         String morse = editText.getText().toString();
-        String character = "Letra: ";
-        if (translator.morseToChar(morse) != '*') {
+        String character = "Número: ";
+        if ((translator.morseToChar(morse) != '*') && this.isNumber(morse)) {
             character += Character.toString(translator.morseToChar(morse));
         }
         text.setText(character);
 
         // Now to try and write the whole output string
-        StringBuilder outputText = new StringBuilder("Mensagem: ");
+        StringBuilder outputText = new StringBuilder("Telefone: ");
         for (char c : outputChars) {
             outputText.append(c);
         }
@@ -175,7 +185,10 @@ public class SMSActivity extends AppCompatActivity {
     private void endChar() {
         String current = editText.getText().toString();
         if (current.length() != 0) {
-            outputChars.add(translator.morseToChar(editText.getText().toString()));
+            char temp = translator.morseToChar(editText.getText().toString());
+            if (this.isNumber(temp)) {
+                outputChars.add(temp);
+            }
             editText.setText("");
         } else {
             outputChars.add(' ');
@@ -188,6 +201,17 @@ public class SMSActivity extends AppCompatActivity {
         editText.setText("");
         // clear() method of LinkedList empties it;
         outputChars.clear();
+    }
+
+    private boolean isNumber(String code){
+        char candidato = this.translator.morseToChar(code);
+        return isNumber(candidato);
+    }
+
+    //Overload
+    private boolean isNumber(char c) {
+        boolean contains = Arrays.asList(numeros).contains(c);
+        return contains;
     }
 }
 
