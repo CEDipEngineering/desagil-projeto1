@@ -11,6 +11,8 @@ public class MensagensActivity extends AppCompatActivity {
     private static Frases mensagens = new Frases();
     private Button msg1;
     private Button msg2;
+    private Button msg3;
+    private Button msg4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,8 @@ public class MensagensActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mensagens);
         msg1 = findViewById(R.id.msg_1);
         msg2 = findViewById(R.id.msg_2);
+        msg3 = findViewById(R.id.msg_3);
+        msg4 = findViewById(R.id.msg_4);
     }
 
 
