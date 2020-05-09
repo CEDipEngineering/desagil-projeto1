@@ -1,6 +1,8 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 
 //Código baseado de ExemploSMS da matéria Desenvolvimento Colaborativo Ágil
 public class SMSActivity extends AppCompatActivity {
+    private Button backButton;
     // Método de conveniência para mostrar uma bolha de texto.
     private void showToast(String text) {
 
@@ -29,6 +32,12 @@ public class SMSActivity extends AppCompatActivity {
         EditText textMessage = findViewById(R.id.text_message);
         EditText textPhone = findViewById(R.id.text_phone);
         Button buttonSend = findViewById(R.id.button_send);
+        backButton = findViewById(R.id.home_button);
+
+        this.backButton.setOnClickListener((view) -> {
+            Intent intent=new Intent(SMSActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
 
         buttonSend.setOnClickListener((view) -> {
             String message = textMessage.getText().toString();

@@ -20,6 +20,13 @@
       disso, usamos columnWeight para dizer que ela
       deve tentar ocupar o espaço horizontal que puder.
     -->
+    <Button
+        android:id="@+id/home_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Editar Mensagem"
+        />
+
     <EditText
         android:id="@+id/text_message"
         android:layout_height="wrap_content"
