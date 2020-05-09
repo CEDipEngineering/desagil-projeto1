@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonDelete;
     private Button buttonEndChar;
     private Button homeButton;
+    private Button SMSButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         buttonDelete = findViewById(R.id.button_delete);
         buttonEndChar = findViewById(R.id.button_endChar);
         homeButton = findViewById(R.id.home_button);
+        SMSButton = findViewById(R.id.button_SMS);
 
         // Write dot if short click;
         this.buttonMorse.setOnClickListener((view) -> {
@@ -74,6 +76,12 @@ public class MainActivity extends AppCompatActivity {
 
         this.homeButton.setOnClickListener((view) -> {
             Intent intent=new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        this.SMSButton.setOnClickListener((view) -> {
+            Intent intent = new Intent(MainActivity.this, SMSActivity.class);
+            intent.putExtra("message", this.textWord.getText().toString());
             startActivity(intent);
         });
     }

@@ -96,4 +96,16 @@
         android:text="\u2423"
         android:textSize="30sp"/>
 
+    <Button
+        android:id="@+id/button_SMS"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/button_morse"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:padding="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Enviar por SMS"
+        android:textSize="18sp"/>
+
 </RelativeLayout>
