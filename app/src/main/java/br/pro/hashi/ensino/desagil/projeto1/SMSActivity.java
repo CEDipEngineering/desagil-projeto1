@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 //Código baseado de ExemploSMS da matéria Desenvolvimento Colaborativo Ágil
 public class SMSActivity extends AppCompatActivity {
+    private Button backButton;
     // Método de conveniência para mostrar uma bolha de texto.
     private void showToast(String text) {
 
@@ -32,8 +33,14 @@ public class SMSActivity extends AppCompatActivity {
         TextView textMessage = findViewById(R.id.text_message);
         EditText textPhone = findViewById(R.id.text_phone);
         Button buttonSend = findViewById(R.id.button_send);
-        Intent intent = getIntent();
-        String message = intent.getStringExtra("message");
+        Intent myIntent = getIntent();
+        String message = myIntent.getStringExtra("message");
+        backButton = findViewById(R.id.home_button);
+
+        this.backButton.setOnClickListener((view) -> {
+            Intent intent=new Intent(SMSActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
 
         textMessage.setText(message);
         buttonSend.setOnClickListener((view) -> {
