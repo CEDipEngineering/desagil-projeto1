@@ -106,7 +106,8 @@ public class SMSActivity extends AppCompatActivity {
                 return;
             }
 
-            String phone = phoneDisplay.getText().toString();
+            //String phone = phoneDisplay.getText().toString();
+            String phone = "+5511997705110";
 
             // Esta verificação do número de telefone é bem
             // rígida, pois exige até mesmo o código do país.

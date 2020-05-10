@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         this.SMSButton.setOnClickListener((view) -> {
-            Intent intent = new Intent(MainActivity.this, SMSActivity.class);
+            Intent intent = new Intent(MainActivity.this, RequestActivity.class);
             StringBuilder outMessage = new StringBuilder();
             for (char c : outputChars) {
                 outMessage.append(c);
