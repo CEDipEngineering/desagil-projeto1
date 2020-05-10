@@ -9,10 +9,10 @@
 
 
     <TextView
-        android:id="@+id/textLetter"
+        android:id="@+id/current_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit_text"
+        android:layout_below="@id/morse_display"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="50dp"
@@ -20,38 +20,37 @@
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/edit_text"
+        android:id="@+id/morse_display"
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_below="@id/textNumber"
+        android:layout_below="@id/phone_display"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:textSize="25sp"
-        android:textStyle="bold"
-        android:inputType="none"/>
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textWord"
+        android:id="@+id/message_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="50dp"
-        android:layout_below="@id/back_button"
+        android:layout_below="@id/button_back"
         android:layout_marginRight="50dp"
         android:textSize="20sp"
         android:text="Mensagem: " />
 
     <TextView
-        android:id="@+id/textNumber"
+        android:id="@+id/phone_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="50dp"
-        android:layout_below="@id/textWord"
+        android:layout_below="@id/message_display"
         android:layout_marginRight="50dp"
         android:textSize="20sp"
         android:text="Telefone: " />
@@ -60,7 +59,7 @@
 
 
     <Button
-        android:id="@+id/back_button"
+        android:id="@+id/button_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Editar Mensagem"
@@ -74,7 +73,7 @@
         android:layout_alignParentBottom="false"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="false"
-        android:layout_below="@id/textLetter"
+        android:layout_below="@id/current_number"
         android:layout_marginTop="30sp"
         android:padding="15dp"
         android:text=".-"
