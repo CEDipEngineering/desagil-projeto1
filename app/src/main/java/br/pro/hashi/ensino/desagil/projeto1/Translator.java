@@ -8,7 +8,7 @@ package br.pro.hashi.ensino.desagil.projeto1;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class Translator {
+class Translator {
     private Node root;
     private final HashMap<Character, Node> map;
 

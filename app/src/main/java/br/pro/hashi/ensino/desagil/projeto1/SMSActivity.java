@@ -1,7 +1,6 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
@@ -10,15 +9,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Arrays;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.LinkedList;
 
 
 //Código baseado de ExemploSMS da matéria Desenvolvimento Colaborativo Ágil
+@SuppressWarnings("FieldCanBeLocal")
 public class SMSActivity extends AppCompatActivity {
     private static final Translator translator = new Translator(); //protected quando tiverem mais activities?
     private final LinkedList<Character> outputChars = new LinkedList<>();
-    private static final char[] numeros = new char[]{'0','1','2','3','4','5','6','7','8','9'};
+    private static final char[] numeros = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     private TextView currentNumber, morseDisplay, messageDisplay, phoneDisplay;
     private Button buttonBack, buttonMorse, buttonDelete, buttonEndChar, buttonSMS;
 
@@ -32,6 +33,7 @@ public class SMSActivity extends AppCompatActivity {
         toast.show();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,15 +52,13 @@ public class SMSActivity extends AppCompatActivity {
         buttonSMS = findViewById(R.id.button_SMS);
 
 
-
-
         // Usa a mensagem que foi enviada junto da criação do intent para mostrar o que será enviado
         Intent myIntent = getIntent();
         String message = myIntent.getStringExtra("message");
         messageDisplay.setText("Mensagem: " + message);
 
         this.buttonBack.setOnClickListener((view) -> {
-            Intent intent=new Intent(SMSActivity.this, MainActivity.class);
+            Intent intent = new Intent(SMSActivity.this, MainActivity.class);
             intent.putExtra("message", message);
             startActivity(intent);
         });
@@ -132,7 +132,7 @@ public class SMSActivity extends AppCompatActivity {
         // Try to translate editText
         String morse = morseDisplay.getText().toString();
         String character = "Número: ";
-        if ((translator.morseToChar(morse) != '*' && this.isNumber(morse)) ) {
+        if ((translator.morseToChar(morse) != '*' && this.isNumber(morse))) {
             character += Character.toString(translator.morseToChar(morse));
         }
         currentNumber.setText(character);
@@ -191,14 +191,14 @@ public class SMSActivity extends AppCompatActivity {
         outputChars.clear();
     }
 
-    private boolean isNumber(String code){
-        char candidato = this.translator.morseToChar(code);
+    private boolean isNumber(String code) {
+        char candidato = translator.morseToChar(code);
         return isNumber(candidato);
     }
 
     //Overload
     private boolean isNumber(char c) {
-        for (char n: numeros) {
+        for (char n : numeros) {
             if (c == n) {
                 return true;
             }

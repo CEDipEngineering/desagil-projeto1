@@ -1,9 +1,9 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         if (message != null) {
             textWord.setText(message);
             outputChars.clear();
-            for (char c: message.toCharArray()) {
+            for (char c : message.toCharArray()) {
                 outputChars.add(c);
             }
             update();
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         this.homeButton.setOnClickListener((view) -> {
-            Intent intent=new Intent(MainActivity.this, HomeActivity.class);
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 
@@ -157,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void clearMsg() {
         text.setText("Letra: ");
         textWord.setText("Mensagem: ");
