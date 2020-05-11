@@ -34,8 +34,10 @@
         android:layout_below="@id/textWord"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:padding="10dp"
-        android:textSize="25sp" />
+        android:padding="5dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textWord"
