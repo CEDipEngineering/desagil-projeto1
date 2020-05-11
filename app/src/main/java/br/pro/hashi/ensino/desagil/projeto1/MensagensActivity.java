@@ -53,12 +53,12 @@ public class MensagensActivity extends AppCompatActivity {
 //        System.out.println(arrayList);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MensagensActivity.this, "clicked item:"+i+" "+arrayList.get(i).toString(), Toast.LENGTH_SHORT).show();
-            }
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(MensagensActivity.this, "clicked item:"+i+" "+arrayList.get(i).toString(), Toast.LENGTH_SHORT).show();
+//            }
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//            Toast.makeText(MensagensActivity.this, "clicked item:"+i+" "+arrayList.get(i).toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MensagensActivity.this, "clicked item:"+i+" "+arrayList.get(i).toString(), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MensagensActivity.this, MainActivity.class);
             intent.putExtra("message", arrayList.get(i).toString());
             startActivity(intent);
