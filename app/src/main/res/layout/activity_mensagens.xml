@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     xmlns:app="http://schemas.android.com/apk/res-auto"
-=======
->>>>>>> f0ab9a043d362beef63b4e302160c60ba0a521c1
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MensagensActivity"
     xmlns:tools="http://schemas.android.com/tools">
-<<<<<<< HEAD
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/home_button"/>
 
-
-        <ListView
-            android:id="@+id/listview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </RelativeLayout>
-
-=======
     <Button
         android:id="@+id/home_button"
         android:layout_width="match_parent"
@@ -26,10 +20,4 @@
         android:text="Home"
         />
 
-
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </RelativeLayout>
->>>>>>> f0ab9a043d362beef63b4e302160c60ba0a521c1
