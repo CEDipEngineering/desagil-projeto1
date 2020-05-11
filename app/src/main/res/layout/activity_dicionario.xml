@@ -27,39 +27,33 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp" />
 
-        <TextView
+        <ListView
             android:layout_marginTop="40dp"
-            android:id="@+id/textDic1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/troca_dic"
-            android:layout_gravity="left"
-            android:layout_marginLeft="130dp"
-            android:layout_marginRight="50dp"
-            android:textSize="20sp"
-            android:gravity="left" />
-        <TextView
-            android:layout_marginTop="40dp"
-            android:id="@+id/textDic2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/listDic1"
+            android:layout_width="80dp"
+            android:layout_height="1800dp"
+            android:layout_marginLeft="110dp"
+            android:layout_marginRight="80dp"
             android:layout_below="@id/troca_dic"
             android:layout_gravity="center"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:textSize="20sp"
-            android:gravity="center_horizontal" />
-        <TextView
+            android:textSize="80sp"
+            android:listSelector="@android:color/transparent"
+            >
+
+        </ListView>
+        <ListView
             android:layout_marginTop="40dp"
-            android:id="@+id/textDic3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/listDic3"
+            android:layout_width="80dp"
+            android:layout_height="1800dp"
+            android:layout_marginLeft="210dp"
             android:layout_below="@id/troca_dic"
-            android:layout_gravity="right"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="130dp"
-            android:textSize="20sp"
-            android:gravity="right" />
+            android:textSize="80sp"
+            android:layout_gravity="center"
+            android:listSelector="@android:color/transparent"
+            >
+
+        </ListView>
 
 
     </RelativeLayout>
