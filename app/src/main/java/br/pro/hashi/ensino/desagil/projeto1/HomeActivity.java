@@ -33,6 +33,8 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         this.buttonMessages.setOnClickListener((view) -> {
+            Intent intent = new Intent(HomeActivity.this, MensagensActivity.class);
+            startActivity(intent);
         });
 
     }
