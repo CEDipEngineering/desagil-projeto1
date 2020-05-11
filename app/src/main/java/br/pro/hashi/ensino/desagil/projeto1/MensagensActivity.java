@@ -33,6 +33,14 @@ public class MensagensActivity extends AppCompatActivity {
         arrayList.add("Estou precisando de ajuda");
         arrayList.add("É urgente!");
         arrayList.add("Venha ver isso");
+        arrayList.add("Estou com sede");
+        arrayList.add("A TV quebrou de novo");
+        arrayList.add("Socorro");
+        arrayList.add("Está chovendo?");
+        arrayList.add("Tá passando o jogo?");
+        arrayList.add("Acabou a cerveja");
+        arrayList.add("Desliga a TV que o Bolsonaro começou a falar de novo");
+        arrayList.add("Olha a campainha");
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
 
