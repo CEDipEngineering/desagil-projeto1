@@ -1,11 +1,12 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+@SuppressWarnings("FieldCanBeLocal")
 public class HomeActivity extends AppCompatActivity {
     private Button buttonTranslator;
     private Button buttonDict;
@@ -21,13 +22,13 @@ public class HomeActivity extends AppCompatActivity {
         buttonMessages = findViewById(R.id.messages);
 
         this.buttonDict.setOnClickListener((view) -> {
-            Intent intent=new Intent(HomeActivity.this, DictionaryActivity.class);
+            Intent intent = new Intent(HomeActivity.this, DictionaryActivity.class);
             startActivity(intent);
         });
 
 
         this.buttonTranslator.setOnClickListener((view) -> {
-            Intent intent=new Intent(HomeActivity.this,MainActivity.class);
+            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
             startActivity(intent);
 
         });

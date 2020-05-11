@@ -1,14 +1,15 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+@SuppressWarnings("FieldCanBeLocal")
 public class DictionaryActivity extends AppCompatActivity {
-    private static Dicionario dictionary = new Dicionario();
+    private static final Dicionario dictionary = new Dicionario();
     private Button homeButton;
     private Button dicButton;
 
@@ -24,7 +25,7 @@ public class DictionaryActivity extends AppCompatActivity {
         textDicionario.setText(dictionary.getDicMorseChar());
 
         this.homeButton.setOnClickListener((view) -> {
-            Intent intent=new Intent(DictionaryActivity.this, HomeActivity.class);
+            Intent intent = new Intent(DictionaryActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 

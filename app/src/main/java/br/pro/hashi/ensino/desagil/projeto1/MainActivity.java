@@ -1,9 +1,9 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonDelete;
     private Button buttonEndChar;
     private Button homeButton;
+    private Button SMSButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,21 @@ public class MainActivity extends AppCompatActivity {
         buttonDelete = findViewById(R.id.button_delete);
         buttonEndChar = findViewById(R.id.button_endChar);
         homeButton = findViewById(R.id.home_button);
+        SMSButton = findViewById(R.id.button_SMS);
+        Intent myIntent = getIntent();
+        // Try to get message handed in when creating intent
+        String message = myIntent.getStringExtra("message");
+
+        // If there is one, put it in the textView
+        if (message != null) {
+            textWord.setText(message);
+            outputChars.clear();
+            for (char c : message.toCharArray()) {
+                outputChars.add(c);
+            }
+            update();
+        }
+
 
         // Write dot if short click;
         this.buttonMorse.setOnClickListener((view) -> {
@@ -54,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
         this.buttonDelete.setOnClickListener((view) -> {
             deleteMorse();
             update();
-
-
         });
 
         // Clear everything if long click on delete button;
@@ -73,7 +87,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         this.homeButton.setOnClickListener((view) -> {
-            Intent intent=new Intent(MainActivity.this, HomeActivity.class);
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        this.SMSButton.setOnClickListener((view) -> {
+            Intent intent = new Intent(MainActivity.this, RequestActivity.class);
+            StringBuilder outMessage = new StringBuilder();
+            for (char c : outputChars) {
+                outMessage.append(c);
+            }
+            intent.putExtra("message", outMessage.toString());
             startActivity(intent);
         });
     }
@@ -90,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
             character += Character.toString(translator.morseToChar(morse));
         }
         text.setText(character);
-
         // Now to try and write the whole output string
         StringBuilder outputText = new StringBuilder("Mensagem: ");
         for (char c : outputChars) {
@@ -134,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void clearMsg() {
         text.setText("Letra: ");
         textWord.setText("Mensagem: ");

@@ -3,7 +3,7 @@ package br.pro.hashi.ensino.desagil.projeto1;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Search {
+class Search {
     private final Queue<Node> queue;
     private final Node root;
 
