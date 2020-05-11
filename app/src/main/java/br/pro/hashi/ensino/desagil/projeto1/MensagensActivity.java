@@ -21,7 +21,7 @@ public class MensagensActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mensagens);
 
-        listView=(ListView)findViewById(R.id.listview);
+        listView=(ListView) findViewById(R.id.listview);
 
         ArrayList<String> arrayList = new ArrayList<>();
 
