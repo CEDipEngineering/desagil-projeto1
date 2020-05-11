@@ -48,8 +48,8 @@ class Dicionario {
             roman = roman.replace("null", "");
             //charMorse1 += roman + '\n';
             //charMorse3 += morse + '\n';
-            listCharMorse1.add(morse);
-            listCharMorse2.add(roman);
+            listCharMorse1.add(roman);
+            listCharMorse2.add(morse);
         }
         //charMorse1 = charMorse1.replace("null", "");
         //charMorse3 = charMorse3.replace("null", "");
