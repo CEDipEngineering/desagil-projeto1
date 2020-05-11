@@ -21,7 +21,7 @@ public class RequestActivity extends AppCompatActivity {
         Intent intent = new Intent(RequestActivity.this, SMSActivity.class);
         Intent myIntent = getIntent();
         String outMessage = myIntent.getStringExtra("message");
-        intent.putExtra("message", outMessage.toString());
+        intent.putExtra("message", outMessage);
         startActivity(intent);
     }
 

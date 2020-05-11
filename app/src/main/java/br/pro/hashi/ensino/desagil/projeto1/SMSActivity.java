@@ -106,8 +106,7 @@ public class SMSActivity extends AppCompatActivity {
                 return;
             }
 
-            //String phone = phoneDisplay.getText().toString();
-            String phone = "+5511997705110";
+            String phone = "+" + phoneDisplay.getText().toString();
 
             // Esta verificação do número de telefone é bem
             // rígida, pois exige até mesmo o código do país.
@@ -147,15 +146,15 @@ public class SMSActivity extends AppCompatActivity {
     }
 
     private void writeDash() {
-        String current = morseDisplay.getText().toString();
-        current += '-';
-        morseDisplay.setText(current);
+        String current = this.morseDisplay.getText().toString();
+        current += "-";
+        this.morseDisplay.setText(current);
     }
 
     private void writeDot() {
-        String current = morseDisplay.getText().toString();
-        current += '.';
-        morseDisplay.setText(current);
+        String current = this.morseDisplay.getText().toString();
+        current += ".";
+        this.morseDisplay.setText(current);
     }
 
     private void deleteMorse() {
