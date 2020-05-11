@@ -106,8 +106,13 @@ public class SMSActivity extends AppCompatActivity {
                 return;
             }
 
-            String phone = "+" + phoneDisplay.getText().toString();
 
+            String phoneNumber = "";
+            for (char c: outputChars){
+                phoneNumber += c;
+            }
+            String phone = "+" + phoneNumber;
+            System.out.println(phone);
             // Esta verificação do número de telefone é bem
             // rígida, pois exige até mesmo o código do país.
             if (!PhoneNumberUtils.isGlobalPhoneNumber(phone)) {
