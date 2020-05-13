@@ -11,7 +11,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Button;
 
-//Activity e XML baseados de https://github.com/hashiprobr/desagil-android-sms
+//Activity e XML adaptados de https://github.com/hashiprobr/desagil-android-sms
 
 public class RequestActivity extends AppCompatActivity {
     private static final int REQUEST_SEND_SMS = 0;
@@ -32,6 +32,9 @@ public class RequestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_request);
         System.out.println("CRIOU");
         Button buttonExample = findViewById(R.id.button_example);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+            startSMSActivity();
+        }
         buttonExample.setOnClickListener((view) -> {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                 startSMSActivity();
