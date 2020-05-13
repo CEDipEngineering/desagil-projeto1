@@ -10,7 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
+import java.io.InputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -29,27 +30,35 @@ public class MensagensActivity extends AppCompatActivity {
 
         ArrayList<String> arrayList = new ArrayList<>();
 
-        arrayList.add("Venha cá");
-        arrayList.add("Estou precisando de ajuda");
-        arrayList.add("É urgente!");
-        arrayList.add("Venha ver isso");
-        arrayList.add("Estou com sede");
-        arrayList.add("A TV quebrou de novo");
-        arrayList.add("Socorro");
-        arrayList.add("Está chovendo?");
-        arrayList.add("Tá passando o jogo?");
-        arrayList.add("Acabou a cerveja");
-        arrayList.add("Desliga a TV que o Bolsonaro começou a falar de novo");
-        arrayList.add("Olha a campainha");
+        String text = "";
+        try{
+            InputStream inputStream = getAssets().open("prontas.txt");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+            text = new String(buffer);
+            System.out.println(text);
+            String lines[] = text.split("\\r?\\n");
+            for (String line : lines) {
+                arrayList.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
 
         listView.setAdapter(arrayAdapter);
+//        System.out.println(arrayList);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(MensagensActivity.this, "clicked item:"+i+" "+arrayList.get(i).toString(), Toast.LENGTH_SHORT).show();
+//            }
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//            Toast.makeText(MensagensActivity.this, "clicked item:"+i+" "+arrayList.get(i).toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MensagensActivity.this, "clicked item:"+i+" "+arrayList.get(i).toString(), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MensagensActivity.this, MainActivity.class);
             intent.putExtra("message", arrayList.get(i).toString());
             startActivity(intent);

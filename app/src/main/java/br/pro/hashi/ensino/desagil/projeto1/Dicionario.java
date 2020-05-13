@@ -1,13 +1,17 @@
 package br.pro.hashi.ensino.desagil.projeto1;
 
+import java.util.LinkedList;
+
 @SuppressWarnings("StringConcatenationInLoop")
 class Dicionario {
     private String morseChar1;
-    private String morseChar2;
     private String morseChar3;
     private String charMorse1;
-    private String charMorse2;
     private String charMorse3;
+    private LinkedList<String> listMorseChar1;
+    private LinkedList<String> listMorseChar2;
+    private LinkedList<String> listCharMorse1;
+    private LinkedList<String> listCharMorse2;
     private boolean state;
 
     public Dicionario() {
@@ -15,26 +19,42 @@ class Dicionario {
         char[] nodes = new char[]{'e', 't', 'i', 'a', 'n', 'm', 's', 'u', 'r', 'w', 'd', 'k', 'g', 'o', 'h', 'v', 'f', '*', 'l', '*', 'p', 'j', 'b', 'x', 'c', 'y', 'z', 'q', '*', '*', '5', '4', '*', '3', '*', '*', '*', '2', '*', '*', '*', '*', '*', '*', '*', '1', '6', '*', '*', '*', '*', '*', '*', '*', '7', '*', '*', '*', '8', '*', '9', '0'};
         char[] alfabetico = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
         String result;
+
+        listMorseChar1 = new LinkedList<>();
+        listMorseChar2 = new LinkedList<>();
+        listCharMorse1 = new LinkedList<>();
+        listCharMorse2 = new LinkedList<>();
+
         for (char r : nodes) {
             if (r != '*') {
                 result = translator.charToMorse(r);
-                morseChar1 += result + '\n';
-                morseChar2 += "   =>   " + '\n';
-                morseChar3 += String.valueOf(r) + '\n';
+                String morse = result;
+                morse = morse.replace("null", "");
+                String roman = String.valueOf(r);
+                roman = roman.replace("null", "");
+                if (morse != "") {
+                    //morseChar1 += morse + '\n';
+                    //morseChar3 += roman + '\n';
+                    listMorseChar1.add(morse);
+                    listMorseChar2.add(roman);
+                }
             }
         }
         for (char r : alfabetico) {
             result = translator.charToMorse(r);
-            charMorse1 += String.valueOf(r) + '\n';
-            charMorse2 += "   =>   " + '\n';
-            charMorse3 += result + '\n';
+            String morse = result;
+            morse = morse.replace("null", "");
+            String roman = String.valueOf(r);
+            roman = roman.replace("null", "");
+            //charMorse1 += roman + '\n';
+            //charMorse3 += morse + '\n';
+            listCharMorse1.add(roman);
+            listCharMorse2.add(morse);
         }
-        charMorse1 = charMorse1.replace("null", "");
-        charMorse2 = charMorse2.replace("null", "");
-        charMorse3 = charMorse3.replace("null", "");
-        morseChar1 = morseChar1.replace("null", "");
-        morseChar2 = morseChar2.replace("null", "");
-        morseChar3 = morseChar3.replace("null", "");
+        //charMorse1 = charMorse1.replace("null", "");
+        //charMorse3 = charMorse3.replace("null", "");
+        //morseChar1 = morseChar1.replace("null", "");
+        //morseChar3 = morseChar3.replace("null", "");
 
         state = false;
     }
@@ -44,10 +64,6 @@ class Dicionario {
         return charMorse1;
     }
 
-    public String getDicCharMorse2() {
-        state = false;
-        return charMorse2;
-    }
 
     public String getDicCharMorse3() {
         state = false;
@@ -60,15 +76,30 @@ class Dicionario {
     }
 
 
-    public String getDicMorseChar2() {
-        state = true;
-        return morseChar2;
-    }
-
 
     public String getDicMorseChar3() {
         state = true;
         return morseChar3;
+    }
+
+    public LinkedList<String> getCharMorseList1() {
+        state = false;
+        return listCharMorse1;
+    }
+
+    public LinkedList<String> getCharMorseList2() {
+        state = false;
+        return listCharMorse2;
+    }
+
+    public LinkedList<String> getMorseCharList1() {
+        state = true;
+        return listMorseChar1;
+    }
+
+    public LinkedList<String> getMorseCharList2() {
+        state = true;
+        return listMorseChar2;
     }
 
     public boolean isState() {
